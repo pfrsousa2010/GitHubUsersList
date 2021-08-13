@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:GitHubUsersList.ViewModels"
+             x:DataType="viewModels:LoginViewModel"
+             x:Class="GitHubUsersList.Views.LoginPage"
+             Title="Login" 
+             NavigationPage.HasNavigationBar="False"               
+             BackgroundColor="Black">
+
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="300">            
+            <Frame HasShadow="True" BorderColor="LightBlue" CornerRadius="25">
+                <StackLayout Spacing="50">
+                    <Frame CornerRadius="25" HasShadow="True" BackgroundColor="LightGray">                        
+                        <Label Text="GIT HUB USERS LIST"
+                               TextColor="Black"
+                               FontSize="20" 
+                               HorizontalOptions="CenterAndExpand" 
+                               HorizontalTextAlignment="Center"/>
+                    </Frame>
+                    <Entry Text="{Binding Login, Mode=TwoWay}" Placeholder="login"/>
+                    <Entry Text="{Binding Password, Mode=TwoWay}" Placeholder="password" IsPassword="True"/>
+                    <Button Text="enter" Command="{Binding EnterCommand, Mode=OneWay}"/>                    
+                </StackLayout>
+            </Frame>
+            <Label Text="Wrong login or password, please try again." TextColor="Red" 
+                   HorizontalTextAlignment="Center" 
+                   IsVisible="{Binding Validation, Mode=OneWay}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
